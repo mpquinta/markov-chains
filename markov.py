@@ -10,9 +10,11 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    # your code goes here
+    open_file = open(file_path)
 
-    return 'Contents of your file as one long string'
+    open_file = open_file.read()
+
+    return open_file
 
 
 def make_chains(text_string):
@@ -42,9 +44,28 @@ def make_chains(text_string):
 
     chains = {}
 
-    # your code goes here
+    split_file = text_string.split()
 
-    return chains
+    for i in range(len(split_file) -1):
+        if i == len(split_file) - 2:
+            break
+        current_key = (split_file[i], split_file[i + 1])
+        words = []
+        if chains.get(current_key, 0) == 0:
+            # print("hello!!!!")
+            chains[(split_file[i], split_file[i + 1])] = []
+            # print(current_key, chains[(split_file[i], split_file[i + 1])])
+        chains[current_key].append(split_file[i + 2])
+            # print(chains)
+        # else: 
+        #     chains[current_key].append(split_file[i + 2])
+        # print("Words list: ", words)
+        # if i == len(split_file) - 2:
+        #     break
+        # print(split_file[i], split_file[i + 1])
+        # print(split_file[i + 2])
+    
+    return chains 
 
 
 def make_text(chains):
@@ -53,8 +74,16 @@ def make_text(chains):
     words = []
 
     # your code goes here
+    link = choice(list(chains.keys()))
+    words.append(link[1])
+    print(link)
+    link = choice(chains.get(link))
+    words.append(link)
 
-    return ' '.join(words)
+    if link in chains.keys()
+
+    print(words)
+    # return ' '.join(words)
 
 
 input_path = 'green-eggs.txt'
