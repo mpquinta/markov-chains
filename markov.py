@@ -72,31 +72,38 @@ def make_text(chains):
     """Return text from chains."""
 
     words = []
+    second_word_key = ""
+    word_value = ""
 
     # your code goes here
     # STARTING THE LINK
     # get a random key
     link = choice(list(chains.keys()))
+    second_word_key = link[1]
     for word in link:
         words.append(word)
     # get a random word from value of given key
     link = choice(chains.get(link))
+    word_value = link
     words.append(link)
-    print(words)
+    # print(words)
 
     # REPEATING AND ADDING MORE LINKS
-    # get second word from key and word from value to use as the new key
-    # get random word from new key
-    # add to words
-
-    # words.append(link)
-
-    # if link in chains.keys()
-
+    while True:
+        # get second word from key and word from value to use as the new key
+        # get random word from new key
+        new_key = (second_word_key, word_value)
+        # print("new key: ", new_key)
+        if chains.get(new_key, 0) == 0:
+            return ' '.join(words)
+        second_word_key = word_value
+        # find new value word 
+        word_value = choice(chains.get(new_key))
+        # print("new word value: ", word_value)
+        # add to words
+        words.append(word_value)
     # print(words)
-    # return ' '.join(words)
-
-
+    
 input_path = 'green-eggs.txt'
 
 # Open the file and turn it into one long string
