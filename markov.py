@@ -74,15 +74,25 @@ def make_text(chains):
     words = []
 
     # your code goes here
-    link = choice(list(chains.keys()))
-    words.append(link[1])
-    print(link)
-    link = choice(chains.get(link))
-    words.append(link)
+    # STARTING THE LINK
+    # get a random key
+    # get a random word from value of given key
+    # add to words
 
-    if link in chains.keys()
+    # REPEATING AND ADDING MORE LINKS
+    # get second word from key and word from value to use as the new key
+    # get random word from new key
+    # add to words
 
-    print(words)
+    # link = choice(list(chains.keys()))
+    # words.append(link[1])
+    # print(link)
+    # link = choice(chains.get(link))
+    # words.append(link)
+
+    # if link in chains.keys()
+
+    # print(words)
     # return ' '.join(words)
 
 
